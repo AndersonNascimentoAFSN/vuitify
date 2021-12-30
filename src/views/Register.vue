@@ -1,110 +1,44 @@
 <template>
-  <!-- <v-container> -->
   <div class="ma-0 pa-0">
-    <!-- <v-card> -->
-    <v-navigation-drawer
-      permanent
-      expand-on-hover
+    <v-card
+      class="mx-auto"
+      width="300"
     >
-      <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="model"
-          active-class="border"
-          mandatory
-          color="indigo"
+      <v-list>
+        <v-list-item>
+          <v-list-item-icon>
+            <v-icon>mdi-home</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+
+        <!-- start -->
+        <v-list-group
+          :value="false"
+          prepend-icon="mdi-account-circle"
         >
+          <template v-slot:activator>
+            <v-list-item-title>Users</v-list-item-title>
+          </template>
 
-          <v-list-item link>
+          <v-list-item
+            v-for="([title, icon], i) in admins"
+            :key="i"
+            link
+          >
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon v-text="icon"></v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title v-text="title"></v-list-item-title>
           </v-list-item>
+        </v-list-group>
+        <!-- start -->
 
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-head-question</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>FAQ</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon link>
-              <v-icon>mdi-forum-outline</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>PAD</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon link>
-              <v-icon>mdi-account-sync</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>TurnOver</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon link>
-              <v-icon>mdi-strategy</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Acomp. Estratégico</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon link>
-              <v-icon>mdi-lock</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Permissões</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item>
-            <v-list-item-icon link>
-              <v-icon>mdi-account-group</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Profissionais</v-list-item-title>
-          </v-list-item>
-
-        </v-list-item-group>
       </v-list>
-
-    </v-navigation-drawer>
-    <!-- </v-card> -->
+    </v-card>
   </div>
 
-  <!-- </v-container> -->
-
-  <!-- <v-col cols="4">
-      <v-car
-        class="mx-auto"
-        min-width="400"
-      >
-        <v-list>
-          <v-list-item-group
-            v-model="model"
-            active-class="border"
-            mandatory
-            color="indigo"
-          >
-            <v-list-item
-              v-for="(item, i) in items"
-              v-bind:key="i"
-            >
-
-              <v-list-item-content>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item-content>
-
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-car>
-    </v-col> -->
 </template>
 
 <script>
@@ -128,6 +62,10 @@ export default {
         },
       ],
       model: 1,
+      admins: [
+        ['Management', 'mdi-account-multiple-outline'],
+        ['Settings', 'mdi-cog-outline'],
+      ],
     };
   },
 };
@@ -136,6 +74,12 @@ export default {
 <style scoped>
 .border {
   border: 2px dashed orange;
+}
+
+.v-list-item--link {
+  /* display: flex; */
+  /* justify-content: center !important; */
+  padding-left: 70px;
 }
 
 /* .c_card {
