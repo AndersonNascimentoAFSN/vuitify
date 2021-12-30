@@ -6,6 +6,7 @@
     <v-list
       nav
       dense
+      id="container-items-sidebar"
     >
       <v-list-item-group
         v-model="model"
@@ -44,7 +45,7 @@
             v-for="([title, icon], i) in pad"
             :key="i"
             link
-            color="black"
+            id="container-pad"
           >
             <v-list-item-icon>
               <v-icon v-text="icon"></v-icon>
@@ -153,6 +154,14 @@ export default {
   border: 2px dashed orange;
 } */
 
+#container-pad {
+  background: #f5f5f5;
+  margin: 0;
+}
+
+#container-items-sidebar {
+}
+
 .active-item {
   color: #0056a8;
 }
@@ -161,13 +170,9 @@ export default {
   color: #dddddd;
 }
 
-.v-list-item--link {
+.v-list-group__items {
   background: #f5f5f5;
 }
-
-/* .v-list-item .v-list-item--link .theme--light {
-  background: #f5f5f5 !important;
-} */
 
 .v-list-group__items {
   padding-left: 70px;
