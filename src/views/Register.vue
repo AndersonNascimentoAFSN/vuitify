@@ -106,7 +106,7 @@ export default {
   border: 2px dashed orange;
 }
 
-.c_card {
+/* .c_card {
   max-width: 400px !important;
-}
+} */
 </style>
