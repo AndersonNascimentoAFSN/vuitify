@@ -1,44 +1,76 @@
 <template>
   <!-- <v-container> -->
   <div class="ma-0 pa-0">
-    <v-card>
-      <v-navigation-drawer
-        permanent
-        expand-on-hover
+    <!-- <v-card> -->
+    <v-navigation-drawer
+      permanent
+      expand-on-hover
+    >
+      <v-list
+        nav
+        dense
       >
-        <v-list
-          nav
-          dense
+        <v-list-item-group
+          v-model="model"
+          active-class="border"
+          mandatory
+          color="indigo"
         >
-          <v-list-item-group
-            v-model="model"
-            active-class="border"
-            mandatory
-            color="indigo"
-          >
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-folder</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>My Files</v-list-item-title>
-            </v-list-item>
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-account-multiple</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Shared with me</v-list-item-title>
-            </v-list-item>
-            <v-list-item link>
-              <v-list-item-icon>
-                <v-icon>mdi-star</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Starred</v-list-item-title>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
 
-      </v-navigation-drawer>
-    </v-card>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-head-question</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>FAQ</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-forum-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>PAD</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-account-sync</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>TurnOver</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-strategy</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Acomp. Estratégico</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-lock</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Permissões</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-account-group</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Profissionais</v-list-item-title>
+          </v-list-item>
+
+        </v-list-item-group>
+      </v-list>
+
+    </v-navigation-drawer>
+    <!-- </v-card> -->
   </div>
 
   <!-- </v-container> -->
