@@ -1,124 +1,133 @@
 <template>
-  <v-navigation-drawer
-    permanent
-    expand-on-hover
+  <v-card
+    elevation=10
+    class="c-container"
   >
-    <v-list
-      nav
-      dense
-      id="container-items-sidebar"
+
+    <v-navigation-drawer
+      permanent
+      expand-on-hover
+      mini-variant-width="56"
+      :width="270"
     >
-      <v-list-item-group
-        v-model="model"
-        active-class="active-item"
-        mandatory
-        color="#0056A8"
+      <v-list
+        nav
+        dense
+        id="container-items-sidebar"
+        class="px 0"
       >
-
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-head-question</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>FAQ</v-list-item-title>
-        </v-list-item>
-
-        <!-- start -->
-        <v-list-group
-          :value="false"
-          prepend-icon="mdi-forum-outline"
-          active-class="active-sub-item"
+        <v-list-item-group
+          v-model="model"
+          active-class="active-item"
+          mandatory
           color="#0056A8"
-          link
         >
-          <template v-slot:activator>
-            <v-list-item-title>PAD</v-list-item-title>
-          </template>
 
-          <v-list-item
-            v-for="([title, icon], i) in pad"
-            :key="i"
-            link
-            id="container-pad"
-          >
+          <v-list-item link>
             <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
+              <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-text="title"></v-list-item-title>
+            <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
-        </v-list-group>
-        <!-- end -->
 
-        <!-- start -->
-        <v-list-group
-          :value="false"
-          prepend-icon="mdi-account-sync"
-          link
-        >
-          <template v-slot:activator>
-            <v-list-item-title>Turnover</v-list-item-title>
-          </template>
+          <v-list-item link>
+            <v-list-item-icon>
+              <v-icon>mdi-head-question</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>FAQ</v-list-item-title>
+          </v-list-item>
 
-          <v-list-item
-            v-for="([title, icon], i) in turnover"
-            :key="i"
+          <!-- start -->
+          <v-list-group
+            :value="false"
+            prepend-icon="mdi-forum-outline"
+            active-class="active-sub-item"
+            color="#0056A8"
             link
           >
-            <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-title v-text="title"></v-list-item-title>
-          </v-list-item>
-        </v-list-group>
-        <!-- end -->
+            <template v-slot:activator>
+              <v-list-item-title>PAD</v-list-item-title>
+            </template>
 
-        <!-- start -->
-        <v-list-group
-          :value="false"
-          prepend-icon="mdi-strategy"
-          link
-        >
-          <template v-slot:activator>
-            <v-list-item-title>Acomp. Estratégico</v-list-item-title>
-          </template>
+            <v-list-item
+              v-for="([title, icon], i) in pad"
+              :key="i"
+              link
+              id="container-pad"
+            >
+              <v-list-item-icon>
+                <v-icon v-text="icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-title v-text="title"></v-list-item-title>
+            </v-list-item>
+          </v-list-group>
+          <!-- end -->
 
-          <v-list-item
-            v-for="([title, icon], i) in strategicMonitoring"
-            :key="i"
+          <!-- start -->
+          <v-list-group
+            :value="false"
+            prepend-icon="mdi-account-sync"
             link
           >
-            <v-list-item-icon>
-              <v-icon v-text="icon"></v-icon>
+            <template v-slot:activator>
+              <v-list-item-title>Turnover</v-list-item-title>
+            </template>
+
+            <v-list-item
+              v-for="([title, icon], i) in turnover"
+              :key="i"
+              link
+            >
+              <v-list-item-icon>
+                <v-icon v-text="icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-title v-text="title"></v-list-item-title>
+            </v-list-item>
+          </v-list-group>
+          <!-- end -->
+
+          <!-- start -->
+          <v-list-group
+            :value="false"
+            prepend-icon="mdi-strategy"
+            link
+          >
+            <template v-slot:activator>
+              <v-list-item-title>Acomp. Estratégico</v-list-item-title>
+            </template>
+
+            <v-list-item
+              v-for="([title, icon], i) in strategicMonitoring"
+              :key="i"
+              link
+            >
+              <v-list-item-icon>
+                <v-icon v-text="icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-title v-text="title"></v-list-item-title>
+            </v-list-item>
+          </v-list-group>
+          <!-- end -->
+
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-lock</v-icon>
             </v-list-item-icon>
-            <v-list-item-title v-text="title"></v-list-item-title>
+            <v-list-item-title>Permissões</v-list-item-title>
           </v-list-item>
-        </v-list-group>
-        <!-- end -->
 
-        <v-list-item>
-          <v-list-item-icon link>
-            <v-icon>mdi-lock</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Permissões</v-list-item-title>
-        </v-list-item>
+          <v-list-item>
+            <v-list-item-icon link>
+              <v-icon>mdi-account-group</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Profissionais</v-list-item-title>
+          </v-list-item>
 
-        <v-list-item>
-          <v-list-item-icon link>
-            <v-icon>mdi-account-group</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Profissionais</v-list-item-title>
-        </v-list-item>
+        </v-list-item-group>
+      </v-list>
 
-      </v-list-item-group>
-    </v-list>
-
-  </v-navigation-drawer>
+    </v-navigation-drawer>
+  </v-card>
 </template>
 
 <script>
@@ -153,6 +162,10 @@ export default {
 /* .border {
   border: 2px dashed orange;
 } */
+
+.c-container {
+  width: min-content;
+}
 
 #container-pad {
   background: #f5f5f5;
