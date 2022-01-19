@@ -23,6 +23,11 @@ const routes = [
     name: 'register',
     component: () => import('../views/Register.vue'),
   },
+  {
+    path: '/HomeTeste',
+    name: 'HomeTeste',
+    component: () => import('../views/HomeTeste.vue'),
+  },
 ];
 
 const router = new VueRouter({
