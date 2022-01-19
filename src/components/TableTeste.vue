@@ -3,7 +3,7 @@
     <v-data-table
       :headers="headers"
       :items="items"
-      :options.sync="options"
+      :options.sync="options2"
       :server-items-length="itemsLength"
       :loading="loading"
       :itemsPerPage=5
@@ -34,10 +34,15 @@ export default {
       type: Boolean,
     },
   },
+  data() {
+    return {
+      options2: this.options,
+    };
+  },
   computed: {
-    changed() {
-      return this.$emit('update:options', this.options);
-    },
+    // changed() {
+    //   return this.$emit('update:options', this.options);
+    // },
   },
 };
 </script>
